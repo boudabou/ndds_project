@@ -1,2 +1,1 @@
-# ntds_project
-Describe project here...
+# ndds_project

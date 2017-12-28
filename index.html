@@ -1,97 +1,99 @@
-<!doctype html>
-<!-- saved from url=(0044)http://kenedict.com/networks/worldcup14/vis/ , thanks Andre!-->
-<html>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=UTF8">
-  <title>Network | Static smooth curves - World Cup Network</title>
 
-  <script type="text/javascript" src="./vis-4.21.0/dist/vis.js"></script>
-  <link type="text/css" rel="stylesheet" href="./vis-4.21.0/dist/vis-network.min.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-  <script src="../datasources/WorldCup2014.js"></script>
+    <title>Simple Sidebar - Start Bootstrap Template</title>
 
-  <style type="text/css">
-    #mynetwork {
-      width: 800px;
-      height: 800px;
-      border: 1px solid lightgray;
-    }
-    #optionsContainer {
-      height:280px;
-    }
-  </style>
-  
+    <script type="text/javascript" src="./vis-4.21.0/dist/vis.js"></script>
+    <script
+            src="http://code.jquery.com/jquery-3.2.1.js"
+            integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+            crossorigin="anonymous">
+    </script>
+
+    <link type="text/css" rel="stylesheet" href="./vis-4.21.0/dist/vis-network.min.css">
+    <style type="text/css">
+        #mynetwork {
+            width: 1200px;
+            height: 450px;
+            border: 3px solid lightgray;
+        }
+        #optionsContainer {
+            height:100px;
+        }
+    </style>
+    <script src="ntds_project.js"></script>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+
 </head>
 
 <body>
 
-<h2>Static smooth curves - World Cup Network</h2>
 
-<div style="width:700px; font-size:14px;">
-  The static smooth curves are based only on the positions of the connected
-  nodes.
-  There are multiple ways to determine the way this curve is drawn.
-  This example shows the effect of the different types on a large network.
-  <br/> <br/>
-  Also shown in this example is the inheritColor option of the edges as well as
-  the roundness factor. Because the physics has been disabled, the dynamic smooth curves do not work here.
-</div>
+    <div id="wrapper">
 
-<div id="optionsContainer"></div>
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#">
+                        Food preferences
+                    </a>
+                </li>
 
-<div id="mynetwork"></div>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
 
-<script type="text/javascript">
-  var network;
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <h1>Food Graph</h1>
+                <p> </p>
+                <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Select food preferences</a>
+                <p> </p>
+                <p> </p>
+                <p>This graph contains all nutriments published by the France government. When selecting a product and a preferences, you can see a graph with all nutriments....</p>
 
-  function redrawAll() {
-    var container = document.getElementById('mynetwork');
-    var options = {
-      nodes: {
-        shape: 'dot',
-        scaling: {
-          min: 10,
-          max: 30
-        },
-        font: {
-          size: 12,
-          face: 'Tahoma'
-        }
-      },
-      edges: {
-        color:{inherit:true},
-        width: 0.15,
-        smooth: {
-          type: 'continuous'
-        }
-      },
-      interaction: {
-        hideEdgesOnDrag: true,
-        tooltipDelay: 200
-      },
-      configure: {
-        filter: function (option, path) {
-          if (option === 'inherit') {return true;}
-          if (option === 'type' && path.indexOf("smooth") !== -1) {return true;}
-          if (option === 'roundness') {return true;}
-          if (option === 'hideEdgesOnDrag') {return true;}
-          if (option === 'hideNodesOnDrag') {return true;}
-          return false;
-        },
-        container: document.getElementById('optionsContainer'),
-        showButton: false
-      },
-      physics: false
-    };
+                <div id="mynetwork"></div>
+                <div id="optionsContainer"></div>
 
-    var data = {nodes:nodes, edges:edges};
-    // Note: data is coming from ./data/WorldCup2014.js
-    network = new vis.Network(container, data, options);
-  }
 
-  redrawAll()
 
-</script>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    var network;
+    var data;
+    var path = "./graphTest.json";
+    loadAndDrawGraph(path);
+    </script>
 
 </body>
+
 </html>
