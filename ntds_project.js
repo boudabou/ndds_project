@@ -7,65 +7,6 @@ function load_data(path){
 });
 }
 
-function redrawAll() {
-    return new Promise((resolve, reject) => {
-        var container = document.getElementById('mynetwork');
-        var options = {
-        nodes: {
-            shape: 'dot',
-            scaling: {
-                min: 10,
-                max: 30
-            },
-            font: {
-                size: 12,
-                face: 'Tahoma'
-            }
-        },
-        /*edges: {
-          color:{inherit:true},
-          width: 0.15,
-          smooth: {
-            type: 'continuous'
-          }
-        },*/
-        interaction: {
-            hideEdgesOnDrag: true,
-            tooltipDelay: 200
-        },
-        configure: {
-            filter: function (option, path) {
-                //if (option === 'inherit') {return true;}
-                //if (option === 'type' && path.indexOf("smooth") !== -1) {return true;}
-                //if (option === 'roundness') {return true;}
-                if (option === 'hideEdgesOnDrag') {return true;}
-                if (option === 'hideNodesOnDrag') {return true;}
-                return false;
-            },
-            container: document.getElementById('optionsContainer'),
-            showButton: false
-        },
-        physics: false
-    };
-
-
-    /*
-        var data = load_data("./graphTest.json");
-        var data = {nodes:nodes, edges:edges};
-        Note: data is coming from ./data/WorldCup2014.js
-    */
-        //var graph = load_data("./graphTest.json");
-        var dataCorrect = {nodes:nodes, edges:edges};
-        var dataIncorrect = {nodes:data.nodes, edges:data.edges};
-        console.log(dataCorrect);
-        console.log(dataIncorrect);
-        //console.log(graph);
-        //window.alert(data["nodes"]);
-        network = new vis.Network(container, dataIncorrect, options);
-        resolve();
-});
-}
-
 function loadAndDrawGraph(path){
     load_data(path).then(
         // On affiche un message avec la valeur
@@ -73,23 +14,35 @@ function loadAndDrawGraph(path){
             var container = document.getElementById('mynetwork');
             var options = {
                 nodes: {
+                    shapeProperties:{
+                        size:30
+                    },
                     shape: 'dot',
                     scaling: {
-                        min: 10,
+                        min: 20,
                         max: 30
                     },
                     font: {
-                        size: 12,
-                        face: 'Tahoma'
-                    }
+                        size: 40,
+                        face: 'Tahoma',
+                        bold:true
+                    },
+                    size: 70
                 },
-                /*edges: {
-                  color:{inherit:true},
+                layout:{
+                    improvedLayout:false
+                },
+
+                  edges: {
+                  color:{
+                      inherit:true,
+                      opacity: 0.1
+                  },
                   width: 0.15,
                   smooth: {
                     type: 'continuous'
                   }
-                },*/
+                },
                 interaction: {
                     hideEdgesOnDrag: true,
                     tooltipDelay: 200
