@@ -20,7 +20,7 @@
     <link type="text/css" rel="stylesheet" href="./vis-4.21.0/dist/vis-network.min.css">
     <style type="text/css">
         #mynetwork {
-            width: 1200px;
+            width: 970px;
             height: 400px;
             border: 3px solid lightgray;
         }
@@ -47,9 +47,79 @@
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
                 <li class="sidebar-brand">
-                    <a href="#">
-                        Food preferences
+
+                    <p
+                            > ok
+                    </p>
+                    <a
+                            href="#" id="cat"> See all Categories
                     </a>
+                    <a
+                            href="#" id="cholest" > Cholesterol
+                    </a>
+                    <a
+                            href="#" id="proteine"> Proteine
+                    </a>
+                    <a
+                            href="#" id="iode"> Iode
+                    </a>
+                    <a
+                            href="#" id="calcium"> Calcium
+                    </a>
+                    <a
+                            href="#" id="eau"> Eau
+                    </a>
+                    <a
+                            href="#" id="magnesium"> Magnesium
+                    </a>
+                    <a
+                            href="#" id="acides_gras"> Acides Gras Saturés
+                    </a>
+                    <a
+                            href="#" id="sucres"> Sucres
+                    </a>
+                    <a
+                            href="#" id="sodium"> Sodium
+                    </a>
+
+                    <script>
+                        function change_color(s)
+                        {
+                            var col=document.getElementById(s);
+                            col.style.color="grey";
+                            col.onmouseover = function(){
+                                col.style.color="white";
+                                //col.mouseleave = function(){col.style.color="grey";}
+                                };
+                        }
+                        var currentBut= "cholest"
+                        //var button = document.getElementById('checkout-button');
+                        //button.onclick = function() {myFunction("cholest")};
+                        //button.disabled = 'disabled';
+                        document.getElementById("cholest").onclick = function() {myFunction("cholest")};
+                        document.getElementById("proteine").onclick = function() {myFunction("proteine")};
+                        document.getElementById("iode").onclick = function() {myFunction("iode")};
+                        document.getElementById("calcium").onclick = function() {myFunction("calcium")};
+                        document.getElementById("eau").onclick = function() {myFunction("eau")};
+                        document.getElementById("magnesium").onclick = function() {myFunction("magnesium")};
+                        document.getElementById("acides_gras").onclick = function() {myFunction("acides_gras")};
+                        document.getElementById("sucres").onclick = function() {myFunction("sucres")};
+                        document.getElementById("sodium").onclick = function() {myFunction("sodium")};
+                        document.getElementById("cat").onclick = function() {myFunction("cat")};
+
+                        function myFunction(s) {
+
+                            change_color(currentBut);
+                            currentBut = s;
+                            document.getElementById(s).style.color = 'red'
+                            if (s=="cat"){
+                                s="category";
+                            }
+                            var path = s+".json";
+                            loadAndDrawGraph(path);
+                        }
+                    </script>
+
                 </li>
 
             </ul>
@@ -61,7 +131,7 @@
             <div class="container-fluid">
                 <h1>Food Graph</h1>
                 <p> </p>
-                <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Select food preferences</a>
+                <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Food preferences</a>
                 <p> </p>
                 <p> </p>
                 <p>This graph contains all nutriments published by the France government. When selecting a product and a preferences, you can see a graph with all nutriments....</p>
