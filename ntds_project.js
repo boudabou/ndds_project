@@ -38,27 +38,27 @@ function loadAndDrawGraph(path){
                       inherit:true,
                       opacity: 0.1
                   },
-                  width: 0.15,
+                  width: 0.1,
                   smooth: {
                     type: 'continuous'
                   }
                 },
-                interaction: {
+                /*interaction: {
                     hideEdgesOnDrag: true,
                     tooltipDelay: 200
-                },
-                configure: {
+                },*/
+                /*configure: {
                     filter: function (option, path) {
-                        //if (option === 'inherit') {return true;}
-                        //if (option === 'type' && path.indexOf("smooth") !== -1) {return true;}
+                        if (option === 'inherit') {return true;}
+                        if (option === 'type' && path.indexOf("smooth") !== -1) {return true;}
                         //if (option === 'roundness') {return true;}
-                        if (option === 'hideEdgesOnDrag') {return true;}
-                        if (option === 'hideNodesOnDrag') {return true;}
+                        //if (option === 'hideEdgesOnDrag') {return true;}
+                        //if (option === 'hideNodesOnDrag') {return true;}
                         return false;
                     },
                     container: document.getElementById('optionsContainer'),
                     showButton: false
-                },
+                },*/
                 physics: false
             };
             console.log(data);
