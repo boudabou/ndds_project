@@ -132,10 +132,44 @@
                 <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Nutrients</a>
                 <p> </p>
                 <p> </p>
-                <p>This graph contains all nutriments published by the France government. When selecting a product and a preferences, you can see a graph with all nutriments....</p>
+                <p>
+                    In this network, we can see the 9 different clusters separated in the 2d coordinates plan. Hence, nodes in the same area are similar in nutrients sense.<br>
+                    <br>
+                    The node colour indicates its category. <br>
+                    <br>
+                    Every cluster contains several sub-clusters of the same category. <br>
+                    <br>
+                    Also, some categories form an important component of more than one cluster. As an example, processed meat in light blue can be found with oils (light green) in the third cluster and with poultry(orange) and meat(red) in the fourth one. <br>
+                    <br>
+                    In the other direction, the important category components of each clusters varies considerably. For example,  here we can the cluster that contains only cheeses and here another cluster formed mainly by 4 différents categories that are alcoholic, non alcholic beverages, fruits, vegetables and milk  <br>
+
+                    <br>
+                </p>
+
+
 
                 <div id="mynetwork"></div>
                 <div id="optionsContainer"></div>
+
+                <p>
+                    <br>
+                    The advantage of such visualisation is that it allows users spot similar foods easily. Similar in nutritional sens, category sens or more interestingly both of them.
+
+                    In fact, If two nodes have the same colour and are located in the same cluster they have similar nutrients sense and belong to the same category.<br>
+
+                    <br>
+                    Take an example and dive into one of the clusters, you can smoothly zoom in the graph to read different label. It is also possible to move nodes if labels are conflicting
+                    for a better readability.<br>
+                    <br>
+
+                    Now we want to allow users filter some nodes according to their needs in nutrients. We can imagine for example that some users need food rich in protein some other are diabetic and want
+                    to avoid sugar... Hence, we added a feature to our graph that allows user choose nutrients and see the colour of every node changing according to the quantity of that nutrients contained
+                    in 100g of each node product. <br>
+                    <br>
+
+                    This can be thought of as visualising a nutrient signal on a graph. Click on nutrients to see the list and to apply signals on the graph.
+
+                </p>
 
 
 
